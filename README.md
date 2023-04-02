@@ -1,10 +1,10 @@
 # Oddsportal-surebet
-Oddsportal scraper retrieves all arbitrage opportunites for input bookmakers\n
+Oddsportal scraper retrieves all arbitrage opportunites for input bookmakers
 
-Current version takes 2 input, bookmaker1 and bookmaker2\n
-No verification is done so put the right names\n
-Scraper.py will return all surebets with both bookmakers\n
-bet type can be 1X2, under/over, etc.\n
+Current version takes 2 input, bookmaker1 and bookmaker2
+No verification is done so put the right names
+Scraper.py will return all surebets with both bookmakers
+bet type can be 1X2, under/over, etc.
 
 ## Todo
   -Optimize surebet container retrival using XPATH
@@ -13,5 +13,5 @@ bet type can be 1X2, under/over, etc.\n
   -Telegram notification for new opportunities on selected bookmakers (maybe idk)
 
 ## Goal
-The purpose of this project is to gain proficiency in using Selenium to scrape website data efficiently and effectively\n
+The purpose of this project is to gain proficiency in using Selenium to scrape website data efficiently and effectively
 I plan to apply my knowledge of Selenium in more complex web crawling projects in the future
