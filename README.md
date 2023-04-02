@@ -10,7 +10,7 @@ Scraper.py will return all surebets with both bookmakers
 bet type can be 1X2, under/over, etc.
 
 ## Todo
-  -Optimize surebet container retrival using XPATH
+  -Optimize surebet container retrieval using XPATH
   
   -For every container, click the calculator button to check if alternatives have bookmaker1 and bookmaker2
   
