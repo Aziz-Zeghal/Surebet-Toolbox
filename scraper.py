@@ -10,11 +10,11 @@ options.add_argument("--headless")
 driver = webdriver.Chrome(options=options)
 
 #--| User input
-b1 = input("What is your first bookmaker ?\n").upper()
+b1 = input("What is your first bookmaker ?\n").split(" ")[0].upper()
 while not isinstance(b1, str) :
     b1 = input("What is your first bookmaker ?\n")
 
-b2 = input("What is your second bookmaker ?\n").upper()
+b2 = input("What is your second bookmaker ?\n").split(" ")[0].upper()
 while not isinstance(b2, str) :
     b2 = input("What is your second bookmaker ?\n")
     
@@ -47,16 +47,38 @@ element = driver.find_elements(by = By.CLASS_NAME, value = "surebet-cont")
 
 #We filter only the opportunities with the input bookmakers
 opp = []
-profit = []
 for value in element :
     sure = value.text
-    if sure.find(b1) != -1 and sure.find(b2) != -1 :
-        print(sure)
-        #We know that the profit is in the format XX.X %, so we grab the last 6 characters
-        opp.append(sure)
-        profit.append(float(sure[-6::].replace("%","")))
-        print("------------------\n")
+    
+    if sure.find(b1) != -1 and sure.find(b2) != -1 and sure.find("3-Way") == -1:
+        info = sure.split("\n")
+        time = info[1] + " " + info[2]
+        match = info[3] + " " + info[4]
+        typebet = info[5]
         
-#--| Functions
+        #Sometimes, we have additional info, so we need to find the bookmaker indexes
+        bm1 = info.index("Highest: " + b1)
+        bm2 = info.index("Highest: " + b2)
+        
+        bm1 = "On " + info[bm1] + " for " + info[bm1 + 1]
+        bm2 = "On " + info[bm2] + " for " + info[bm2 + 1]
+        profit = sure[-6::]
+        opp.append((time, match, typebet, bm1, bm2, profit))
+
 driver.close()
 driver.quit()
+if opp == [] :
+    print("Nothing right now !\n")
+
+#--| Functions
+def print_opp() :
+    for arb in opp :
+        print("⏲ " + arb[0]) #time
+        print("🏟 " + arb[1] + "\n") #match
+        print(arb[2] + "\n") #typebet
+        print(arb[3]) #bookmaker1
+        print(arb[4] + "\n") #bookmaker2
+        print("💲 " + arb[5] + "\n") #profit
+        print("------------------\n")
+
+print_opp()
