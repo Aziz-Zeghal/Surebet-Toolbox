@@ -1,5 +1,5 @@
-# Oddsportal-surebet
-Oddsportal scraper retrieves all arbitrage opportunites for input bookmakers
+# Betmonitor-Surebet
+Betmonitor scraper retrieves all arbitrage opportunites for input bookmakers
 
 Current version takes 2 input, bookmaker1 and bookmaker2
 
