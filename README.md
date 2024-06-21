@@ -1,6 +1,8 @@
 # Surebet-Toolbox
 This repository contains tools related to surebetting, valuebetting and other strategies using data analysis.
 
+Will clean up READMEs and files later.
+
 ## Betmonitor-Surebet
 Betmonitor scraper retrieves all arbitrage opportunites for input bookmakers<br>
 Current version takes 2 input, bookmaker1 and bookmaker2<br>
